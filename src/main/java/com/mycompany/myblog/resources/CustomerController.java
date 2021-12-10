@@ -20,8 +20,7 @@ public class CustomerController implements CustomerControllerInterface{
     @POST
     @Override
     @Path("{customerID}")
-    public void createAccount(@PathParam("customerID")Integer customerID) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void createAccount(@PathParam("customerID")Integer customerID) { 
     }
     
     @POST

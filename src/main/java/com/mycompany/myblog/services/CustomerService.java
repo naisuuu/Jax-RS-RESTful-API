@@ -10,5 +10,5 @@ package com.mycompany.myblog.services;
  */
 public class CustomerService {
     // needs some sorta logic
-    
+    // Call db    
 }

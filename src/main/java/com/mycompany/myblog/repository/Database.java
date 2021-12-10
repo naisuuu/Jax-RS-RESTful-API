@@ -10,6 +10,6 @@ import com.mycompany.myblog.models.Customer;
  *
  * @author vilewalker
  */
-public class BankingRepository {
-    Customer[] Customer;
+public class Database {
+    //3 arraylists - 1 for each model
 }
