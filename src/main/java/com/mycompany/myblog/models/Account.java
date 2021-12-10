@@ -5,14 +5,14 @@
 package com.mycompany.myblog.models;
 
 import java.util.List;
-import lombok.Data;
+
 
 /**
  *
  * @author vilewalker
  */
 
-@Data
+
 public class Account {
     private String accountSortCode;
     private String accountType;
@@ -20,4 +20,54 @@ public class Account {
     private Integer accountBalance;
     
     private List<Transaction> accountTransactions;
+
+    public Account(String accountSortCode, String accountType, Integer accountNumber, Integer accountBalance, List<Transaction> accountTransactions) {
+        this.accountSortCode = accountSortCode;
+        this.accountType = accountType;
+        this.accountNumber = accountNumber;
+        this.accountBalance = accountBalance;
+        this.accountTransactions = accountTransactions;
+    }
+    
+    public String getAccountSortCode() {
+        return accountSortCode;
+    }
+
+    public void setAccountSortCode(String accountSortCode) {
+        this.accountSortCode = accountSortCode;
+    }
+
+    public String getAccountType() {
+        return accountType;
+    }
+
+    public void setAccountType(String accountType) {
+        this.accountType = accountType;
+    }
+
+    public Integer getAccountNumber() {
+        return accountNumber;
+    }
+
+    public void setAccountNumber(Integer accountNumber) {
+        this.accountNumber = accountNumber;
+    }
+
+    public Integer getAccountBalance() {
+        return accountBalance;
+    }
+
+    public void setAccountBalance(Integer accountBalance) {
+        this.accountBalance = accountBalance;
+    }
+
+    public List<Transaction> getAccountTransactions() {
+        return accountTransactions;
+    }
+
+    public void setAccountTransactions(List<Transaction> accountTransactions) {
+        this.accountTransactions = accountTransactions;
+    }
+    
+    
     }
