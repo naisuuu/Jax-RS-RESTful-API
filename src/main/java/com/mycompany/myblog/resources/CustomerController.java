@@ -8,6 +8,8 @@ import com.mycompany.myblog.interfaces.CustomerControllerInterface;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 
 /**
  *
@@ -17,31 +19,36 @@ public class CustomerController implements CustomerControllerInterface{
 
     @POST
     @Override
-    public void createAccount(Integer customerID) {
+    @Path("{customerID}")
+    public void createAccount(@PathParam("customerID")Integer customerID) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     @POST
     @Override
-    public void lodgeAccount(Integer customerID, Integer accountID, Integer amount) {
+    @Path("{customerID}/{accountID}")
+    public void lodgeAccount(@PathParam("customerID")Integer customerID, @PathParam("accountID")Integer accountID, Integer amount) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @POST
     @Override
-    public void transferToAccount(Integer customerID, Integer accountID, Integer amount) {
+    @Path("{customerID}/{accountID}")
+    public void transferToAccount(@PathParam("customerID")Integer customerID, @PathParam("accountID")Integer accountID, Integer amount) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @PUT
+    @PUT //Put appropriate?
     @Override
-    public void withdrawFromAccount(Integer customerID, Integer accountID, Integer amount) {
+    @Path("{customerID}/{accountID}")
+    public void withdrawFromAccount(@PathParam("customerID")Integer customerID, @PathParam("accountID")Integer accountID, Integer amount) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @GET
     @Override
-    public Integer getAccountBalance(Integer customerID, Integer accountID) {
+    @Path("{customerID}/{accountID}")
+    public Integer getAccountBalance(@PathParam("customerID")Integer customerID, @PathParam("accountID")Integer accountID) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
