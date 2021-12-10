@@ -4,10 +4,12 @@
  */
 package com.mycompany.myblog.repository;
 
+import com.mycompany.myblog.models.Customer;
+
 /**
  *
  * @author vilewalker
  */
 public class BankingRepository {
-    //Need to connect to DB
+    Customer[] Customer;
 }

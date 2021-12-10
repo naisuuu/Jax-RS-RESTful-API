@@ -27,7 +27,4 @@ public interface CustomerControllerInterface {
     
     public void transferToAccount(Integer customerID, Integer accountID, Integer amount);
     
-    public void withdrawFromAccount(Integer customerID, Integer accountID, Integer amount);
-    
-    public Integer getAccountBalance(Integer customerID, Integer accountID);
 }

@@ -38,18 +38,6 @@ public class CustomerController implements CustomerControllerInterface{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @PUT //Put appropriate?
-    @Override
-    @Path("{customerID}/{accountID}")
-    public void withdrawFromAccount(@PathParam("customerID")Integer customerID, @PathParam("accountID")Integer accountID, Integer amount) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @GET
-    @Override
-    @Path("{customerID}/{accountID}")
-    public Integer getAccountBalance(@PathParam("customerID")Integer customerID, @PathParam("accountID")Integer accountID) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
