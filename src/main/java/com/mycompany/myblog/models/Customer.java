@@ -12,10 +12,11 @@ import lombok.Data;
  */
 @Data
 public class Customer {
-    String customerName;
-    String customerAddress;
-    String customerEmail;
-    String customerPassword;
+    private String customerName;
+    private String customerAddress;
+    private String customerEmail;
+    private String customerPassword;
+    public Integer customerID;
     
     //Hold accounts?
     Account[] customerAccounts;

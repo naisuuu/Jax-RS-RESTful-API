@@ -15,6 +15,7 @@ import lombok.Data;
 @Data
 public class Account {
     private String accountSortCode;
+    private String accountType;
     private Integer accountNumber;
     private Integer accountBalance;
     
