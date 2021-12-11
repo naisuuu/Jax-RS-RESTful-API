@@ -19,21 +19,21 @@ public class CustomerController implements CustomerControllerInterface{
 
     @POST
     @Override
-    @Path("{customerID}")
-    public void createAccount(@PathParam("customerID")Integer customerID) { 
+    @Path("{custID}")
+    public void createAccount(@PathParam("custID")Integer custID) { 
     }
     
     @POST
     @Override
-    @Path("{customerID}/{accountID}")
-    public void lodgeAccount(@PathParam("customerID")Integer customerID, @PathParam("accountID")Integer accountID, Integer amount) {
+    @Path("{custID}/{accountID}")
+    public void lodgeAccount(@PathParam("custID")Integer custID, @PathParam("accountID")Integer accountID, Integer amount) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @POST
     @Override
-    @Path("{customerID}/{accountID}")
-    public void transferToAccount(@PathParam("customerID")Integer customerID, @PathParam("accountID")Integer accountID, Integer amount) {
+    @Path("{custID}/{accountID}")
+    public void transferToAccount(@PathParam("custoID")Integer customerID, @PathParam("accountID")Integer accountID, Integer amount) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
