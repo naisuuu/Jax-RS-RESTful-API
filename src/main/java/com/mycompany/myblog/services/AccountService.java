@@ -39,13 +39,24 @@ public class AccountService {
         accountList.add(account);
         return account;
     }
+    public Account createAccount(int customerID, Account account){
+        
+        List<Transaction> accountTransactions = null;
+        
+        account.setAccountID(accountList.size()+1);
+        accountList.add(account);
+        return account;
+    }
      
     public Account getAccount(Integer accountID){
-        
         Account account = (Account) accountList
                 .stream()
                 .filter(p -> p.accountID.equals(accountID));
        return account;
+    }
+    
+    public List<Account> getAllAccounts(){
+        return accountList;
     }
     
     //Post

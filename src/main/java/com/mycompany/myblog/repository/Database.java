@@ -21,14 +21,38 @@ public class Database {
     public static List<Customer> customerDB = new ArrayList<>();
     public static List<Account> accountDB = new ArrayList<>();
     public static List<Transaction> transactionDB = new ArrayList<>();
+    public static boolean init = true;
     
     //Construtor
 
     public Database() {
+        if (init) {
+          
+        // Create some Customers
+        Customer c1 = new Customer (1, "Name1","Address","Email.com","password",accountDB);  
+     
+        
+        customerDB.add(c1);
+     
+        
+        // Add those Customers to each of the messages. 
+        // Keep in mind ALL messages will contain same list of seeded Customers!!!
+        Account m1 = new Account(1,1,"DSGFDH","Savings",300,transactionDB);
+        
+       // Account m4 = new Account(4,"First", "Lisa", customerDB);
+       // Account m5 = new Account(5,"Fifth", "Jack", customerDB);
+        
+        accountDB.add(m1);
+
+       // accountDB.add(m4);
+       // accountDB.add(m5);
+        
+        init = false;
+     }
     }
 
    
-    public static List<Customer> getCustomerDB() {
+    public static List<Customer> getcustomerDB() {
         return customerDB;
     }
     

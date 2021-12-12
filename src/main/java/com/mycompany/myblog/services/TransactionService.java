@@ -18,6 +18,14 @@ public class TransactionService {
     AccountService accountService;
     private List<Transaction> transactionList = database.getTransactionDB();
     
+    public Transaction createTransaction(Transaction transaction){
+        
+        transaction.setTransactionID(transactionList.size()+1);
+        transactionList.add(transaction);
+        
+        return transaction;
+    }
+    
     public Transaction createTransaction(String transactionDate, String transactionDescription, Integer transactionPostBalance, Integer accountID){
         
         
@@ -27,5 +35,9 @@ public class TransactionService {
         transactionList.add(transaction);
         
         return transaction;
+    }
+    
+    public List<Transaction> getAllTransactions(){
+        return transactionList;
     }
 }
