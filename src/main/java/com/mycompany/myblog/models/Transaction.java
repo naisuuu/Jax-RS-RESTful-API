@@ -14,14 +14,14 @@ import lombok.Data;
 
 @Data
 public class Transaction {
-    private String transactionType;
+    public Integer transactionID;
     private String transactionDate;
     private String transactionDescription;
     private Integer transactionPostBalance;
     private Integer accountID;
 
-    public Transaction(String transactionType, String transactionDate, String transactionDescription, Integer transactionPostBalance, Integer accountID) {
-        this.transactionType = transactionType;
+    public Transaction(Integer transactionID, String transactionDate, String transactionDescription, Integer transactionPostBalance, Integer accountID) {
+        this.transactionID = transactionID;
         this.transactionDate = transactionDate;
         this.transactionDescription = transactionDescription;
         this.transactionPostBalance = transactionPostBalance;

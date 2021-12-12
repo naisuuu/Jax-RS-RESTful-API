@@ -18,14 +18,13 @@ public class TransactionService {
     AccountService accountService;
     private List<Transaction> transactionList = database.getTransactionDB();
     
-    public Transaction createTransaction(Boolean isDebit, String transactionDate, String transactionDescription, Integer transactionPostBalance, Integer accountID){
-        String transactionType ="";
-        if(isDebit==true){
-            transactionType = "debit";
-        } else transactionType = "credit";
+    public Transaction createTransaction(String transactionDate, String transactionDescription, Integer transactionPostBalance, Integer accountID){
         
-        Transaction transaction = new Transaction(transactionType, transactionDate, transactionDescription, transactionPostBalance, accountID);
         
+        Integer transactionIDInt = transactionList.size()+1;
+        
+        Transaction transaction = new Transaction(transactionIDInt,  transactionDate, transactionDescription, transactionPostBalance, accountID);
+        transactionList.add(transaction);
         
         return transaction;
     }

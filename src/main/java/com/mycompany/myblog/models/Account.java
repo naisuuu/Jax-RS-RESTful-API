@@ -19,16 +19,16 @@ public class Account {
     public Integer accountID;
     private String accountSortCode;
     private String accountType;
-    private int accountBalance;
-    private List<Transaction> accountTransactions;
+    private Integer accountBalance;
+    private List<Transaction> accountTransaction;
 
-    public Account(int customerID, Integer accountID, String accountSortCode, String accountType, int accountBalance, List<Transaction> accountTransactions) {
+    public Account(int customerID, Integer accountID, String accountSortCode, String accountType, Integer accountBalance, List<Transaction> accountTransaction) {
         this.customerID = customerID;
         this.accountID = accountID;
         this.accountSortCode = accountSortCode;
         this.accountType = accountType;
         this.accountBalance = accountBalance;
-        this.accountTransactions = accountTransactions;
+        this.accountTransaction = accountTransaction;
     }
 
     }

@@ -5,6 +5,9 @@
 package com.mycompany.myblog.resources;
 
 
+import com.mycompany.myblog.models.Customer;
+import com.mycompany.myblog.services.CustomerService;
+import java.util.List;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -17,10 +20,12 @@ import javax.ws.rs.PathParam;
  */
 public class CustomerController {
     
-    @POST
+    CustomerService customerservice;
+    
+    @GET
     @Path("/")
-    public void createCustomer(@PathParam("customerID")Integer customerID) { 
-        
+    public List<Customer> getCustomer(@PathParam("customerID")Integer customerID) { 
+        return customerservice.getAllCustomers();
     }
     
     
