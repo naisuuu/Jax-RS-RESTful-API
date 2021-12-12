@@ -4,10 +4,29 @@
  */
 package com.mycompany.myblog.services;
 
+import com.mycompany.myblog.models.Account;
+import com.mycompany.myblog.models.Transaction;
+import com.mycompany.myblog.repository.Database;
+import java.util.List;
+
 /**
  *
  * @author vilewalker
  */
 public class TransactionService {
+    Database database = new Database();
+    AccountService accountService;
+    private List<Transaction> transactionList = database.getTransactionDB();
     
+    public Transaction createTransaction(Boolean isDebit, String transactionDate, String transactionDescription, Integer transactionPostBalance, Integer accountID){
+        String transactionType ="";
+        if(isDebit==true){
+            transactionType = "debit";
+        } else transactionType = "credit";
+        
+        Transaction transaction = new Transaction(transactionType, transactionDate, transactionDescription, transactionPostBalance, accountID);
+        
+        
+        return transaction;
+    }
 }
