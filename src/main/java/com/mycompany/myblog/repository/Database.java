@@ -7,9 +7,10 @@ package com.mycompany.myblog.repository;
 
 import com.mycompany.myblog.models.Account;
 import com.mycompany.myblog.models.Customer;
+import com.mycompany.myblog.models.Transaction;
 import java.util.ArrayList;
 import java.util.List;
-import static jdk.internal.vm.compiler.word.LocationIdentity.init;
+//import static jdk.internal.vm.compiler.word.LocationIdentity.init;
 
 /**
  *
@@ -19,6 +20,7 @@ public class Database {
     //3 arraylists - 1 for each model
     public static List<Customer> customerDB = new ArrayList<>();
     public static List<Account> accountDB = new ArrayList<>();
+    public static List<Transaction> transactionDB = new ArrayList<>();
     
     //Construtor
 
@@ -32,5 +34,9 @@ public class Database {
     
     public static List<Account> getAccountDB() {
         return accountDB;
+    }
+    
+    public static List<Transaction> getTransactionDB(){
+        return transactionDB;
     }
 }
