@@ -4,12 +4,14 @@
  */
 package com.mycompany.myblog.services;
 
-import com.mycompany.myblog.models.Account;
+import com.mycompany.myblog.models.Customer;
 import com.mycompany.myblog.models.Customer;
 import com.mycompany.myblog.repository.Database;
 import static com.mycompany.myblog.repository.Database.customerDB;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Optional;
 
 /**
  *
@@ -25,15 +27,20 @@ public class CustomerService {
     public List<Customer> getAllCustomers() {
         return customerList;
     }
-    
-     public Customer getCustomer(Integer customerID){
-        Customer customer = (Customer) customerList
-                .stream()
-                .filter(p -> p.getCustID().equals(customerID));
-       return customer;
-    }
+ 
      
-     public Customer createCustomerID(Customer c) {
+     public Customer getCustomerByID(Integer customerID){
+        Customer customerResult = null;
+        Iterator<Customer> accItr = customerList.iterator();
+        while(accItr.hasNext()){
+            Customer customer = accItr.next();
+            if(customer.getCustID().equals(customerID)){
+                customerResult = customer;
+            }
+        }
+        return customerResult;
+    }
+     public Customer createCustomer(Customer c) {
 	c.setCustID(customerList.size() + 1);
       	customerList.add(c);
 	System.out.println("201 - resource created with path: /customers/" + String.valueOf(c.getCustID()));
@@ -41,7 +48,7 @@ public class CustomerService {
 	return c;
     }
          
-     public List<Customer> getSearchCustomers(int custID, String custName, String custAddress,String custEmail, String custPassword, List<Account>accounts) {
+     public List<Customer> getSearchCustomers(int custID, String custName, String custAddress,String custEmail, String custPassword, List<Customer>customers) {
         List<Customer> matchescustomerList = new ArrayList<>();
         
         for (Customer q: getAllCustomers()) {

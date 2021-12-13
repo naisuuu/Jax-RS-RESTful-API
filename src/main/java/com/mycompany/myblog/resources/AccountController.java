@@ -42,8 +42,14 @@ public class AccountController {
     
     @GET
     @Path("/{accountID}")
-    public Account getAccountByID(@PathParam("accountID")Integer accountID){
-        return accountService.getAccountByID(accountID);
+    public Account getAccount(@PathParam("accountID")Integer accountID){
+        return accountService.getAccount(accountID);
+    }
+    
+    @GET
+    @Path("/customerID/{customerID}/accountID/{accountID}")
+    public Account getAccountByID(@PathParam("customerID")Integer customerID,@PathParam("accountID")Integer accountID){
+        return accountService.getAccountByCustomerIDAndAccountID(customerID,accountID);
     }
     
     

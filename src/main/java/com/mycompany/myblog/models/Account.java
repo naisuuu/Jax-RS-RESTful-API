@@ -15,7 +15,7 @@ import lombok.Data;
 
 @Data
 public class Account {
-    public int customerID;
+    public Integer customerID;
     public Integer accountID;
     private String accountSortCode;
     private String accountType;
@@ -26,7 +26,7 @@ public class Account {
         
     }
 
-    public Account(int customerID, Integer accountID, String accountSortCode, String accountType, Integer accountBalance, List<Transaction> accountTransaction) {
+    public Account(Integer customerID, Integer accountID, String accountSortCode, String accountType, Integer accountBalance, List<Transaction> accountTransaction) {
         this.customerID = customerID;
         this.accountID = accountID;
         this.accountSortCode = accountSortCode;

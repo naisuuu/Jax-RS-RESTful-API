@@ -12,6 +12,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,7 +23,8 @@ import java.util.Optional;
 public class AccountService {
     Database database = new Database();
     TransactionService transactionService;
-    CustomerService customerService;
+    
+    CustomerService customerService = new CustomerService();
     
     private List<Account> accountList = database.getAccountDB();
     private List<Transaction> accountTransactionList;
@@ -38,7 +40,7 @@ public class AccountService {
         String accountSortCode = accountIDInt+"SC";
         //Account holds a list of its own transactions which will be uploaded to 'Transaction database'
         Account account = new Account(customerID,  accountIDInt, accountSortCode, accountType,  accountBalance, accountTransactions);
-        Customer customer = customerService.getCustomer(customerID);
+        Customer customer = customerService.getCustomerByID(customerID);
         customer.getAccounts().add(account);      
         accountList.add(account);
         return account;
@@ -54,16 +56,25 @@ public class AccountService {
     }
      
     public Account getAccount(Integer accountID){
-        Account account = (Account)accountList
-                .stream()
-                .filter(p -> p.accountID.equals(accountID));
-       return account;
+        Account accountResult = null;
+        Iterator<Account> accItr = accountList.iterator();
+        while(accItr.hasNext()){
+            Account account = accItr.next();
+            if(account.getAccountID().equals(accountID)){
+                accountResult = account;
+            }
+        }
+        return accountResult;
     }
-    public Account getAccountByID(Integer accountID) {
+    public Account getAccountByCustomerIDAndAccountID(Integer customerID, Integer accountID) {
+        Account matchAccount = getAccount(accountID);
+        Customer customer = customerService.getCustomerByID(customerID);
+        if(customer.getAccounts().contains(matchAccount)){
     Optional<Account> account = accountList.stream()
             .filter(a -> a.getAccountID().equals(accountID))
             .findFirst();
-    return account.isPresent() ? account.get() : null; // Instead of null you can also return empty Employee Object
+    return account.isPresent() ? account.get() : null;}
+        else return null;// Instead of null you can also return empty Employee Object
 }
     
     
