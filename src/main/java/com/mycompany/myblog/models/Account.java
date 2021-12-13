@@ -21,6 +21,10 @@ public class Account {
     private String accountType;
     private Integer accountBalance;
     private List<Transaction> accountTransaction;
+    
+    public Account(){
+        
+    }
 
     public Account(int customerID, Integer accountID, String accountSortCode, String accountType, Integer accountBalance, List<Transaction> accountTransaction) {
         this.customerID = customerID;

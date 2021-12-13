@@ -19,6 +19,8 @@ public class Transaction {
     private String transactionDescription;
     private Integer transactionPostBalance;
     private Integer accountID;
+    
+    public Transaction(){}
 
     public Transaction(Integer transactionID, String transactionDate, String transactionDescription, Integer transactionPostBalance, Integer accountID) {
         this.transactionID = transactionID;

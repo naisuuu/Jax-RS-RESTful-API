@@ -36,6 +36,8 @@ public class CustomerController {
         return customerService.getAllCustomers();
     }
     
+    
+    
     @POST
     @Path("{customerID}/{accountIDSend}/{accountIDReceive}")
     public String transferToAccount(@PathParam("customerID")Integer customerID, @PathParam("accountIDSend")Integer accountID,@PathParam("accountIDReceive")Integer accountID2, Integer amount) {

@@ -5,6 +5,7 @@
 package com.mycompany.myblog.services;
 
 import com.mycompany.myblog.models.Account;
+import com.mycompany.myblog.models.Customer;
 import com.mycompany.myblog.models.Transaction;
 import com.mycompany.myblog.repository.Database;
 import java.time.LocalDate;
@@ -21,6 +22,7 @@ import java.util.Optional;
 public class AccountService {
     Database database = new Database();
     TransactionService transactionService;
+    CustomerService customerService;
     
     private List<Account> accountList = database.getAccountDB();
     private List<Transaction> accountTransactionList;
@@ -36,9 +38,12 @@ public class AccountService {
         String accountSortCode = accountIDInt+"SC";
         //Account holds a list of its own transactions which will be uploaded to 'Transaction database'
         Account account = new Account(customerID,  accountIDInt, accountSortCode, accountType,  accountBalance, accountTransactions);
+        Customer customer = customerService.getCustomer(customerID);
+        customer.getAccounts().add(account);      
         accountList.add(account);
         return account;
     }
+    
     public Account createAccount(int customerID, Account account){
         
         List<Transaction> accountTransactions = null;
@@ -49,11 +54,18 @@ public class AccountService {
     }
      
     public Account getAccount(Integer accountID){
-        Account account = (Account) accountList
+        Account account = (Account)accountList
                 .stream()
                 .filter(p -> p.accountID.equals(accountID));
        return account;
     }
+    public Account getAccountByID(Integer accountID) {
+    Optional<Account> account = accountList.stream()
+            .filter(a -> a.getAccountID().equals(accountID))
+            .findFirst();
+    return account.isPresent() ? account.get() : null; // Instead of null you can also return empty Employee Object
+}
+    
     
     public List<Account> getAllAccounts(){
         return accountList;
