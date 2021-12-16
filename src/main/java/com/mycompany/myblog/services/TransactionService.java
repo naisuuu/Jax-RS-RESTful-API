@@ -82,10 +82,10 @@ public class TransactionService {
         
         Account account1 = null, account2 = null;
         List<Account> customerAccounts = customer.getAccounts();
-        for(int i=0; i<= customerAccounts.size();i++){
-            if (Objects.equals(customerAccounts.get(i).accountID, transfer.getAccountID())){
+        for(int i=0; i< customerAccounts.size();i++){
+            if ((Objects.equals(customerAccounts.get(i).accountID, transfer.getAccountID()))){
                 account1 = customerAccounts.get(i);
-            } else if (Objects.equals(customerAccounts.get(i).accountID, transfer.getAccountID2())){
+            } else if ((Objects.equals(customerAccounts.get(i).accountID, transfer.getAccountID2()))){
                 account2 = customerAccounts.get(i);
             }
         }

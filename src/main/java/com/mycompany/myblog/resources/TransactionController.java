@@ -32,13 +32,13 @@ public class TransactionController {
     @Path("/transfer/{customerID}")
     public Response transferToAccount(@PathParam("customerID")Integer customerID,Transfer transfer) {
         transactionService.accountTransferToAccount(transfer);
-        return Response.ok().entity("SUCCESS").build();
+        return Response.ok().entity("Request Sent").build();
     }
 
     @POST
     @Path("deposit/{customerID}")
     public Response depositToAccount(@PathParam("customerID")Integer customerID, Transfer transfer) {
            transactionService.accountDeposit(transfer);
-           return Response.ok().entity("SUCCESS").build();
+           return Response.ok().entity("Request Sent").build();
     }
 }

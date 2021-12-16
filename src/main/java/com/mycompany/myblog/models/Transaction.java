@@ -12,7 +12,6 @@ import lombok.Data;
  * @author vilewalker
  */
 
-@Data
 public class Transaction {
     public Integer transactionID;
     private String transactionDate;
@@ -22,6 +21,7 @@ public class Transaction {
     
     public Transaction(){}
 
+    
     public Transaction(Integer transactionID, String transactionDate, String transactionDescription, Integer transactionPostBalance, Integer accountID) {
         this.transactionID = transactionID;
         this.transactionDate = transactionDate;
@@ -29,6 +29,47 @@ public class Transaction {
         this.transactionPostBalance = transactionPostBalance;
         this.accountID = accountID;
     }
+
+    public Integer getTransactionID() {
+        return transactionID;
+    }
+
+    public void setTransactionID(Integer transactionID) {
+        this.transactionID = transactionID;
+    }
+
+    public String getTransactionDate() {
+        return transactionDate;
+    }
+
+    public void setTransactionDate(String transactionDate) {
+        this.transactionDate = transactionDate;
+    }
+
+    public String getTransactionDescription() {
+        return transactionDescription;
+    }
+
+    public void setTransactionDescription(String transactionDescription) {
+        this.transactionDescription = transactionDescription;
+    }
+
+    public Integer getTransactionPostBalance() {
+        return transactionPostBalance;
+    }
+
+    public void setTransactionPostBalance(Integer transactionPostBalance) {
+        this.transactionPostBalance = transactionPostBalance;
+    }
+
+    public Integer getAccountID() {
+        return accountID;
+    }
+
+    public void setAccountID(Integer accountID) {
+        this.accountID = accountID;
+    }
+    
     
     
 }
