@@ -23,7 +23,7 @@ import javax.ws.rs.core.Response;
 
 /**
  *
- * @author vilewalker
+ * @author cjMosawan
  */
 @Path("/customers")
 @Consumes(MediaType.APPLICATION_JSON)

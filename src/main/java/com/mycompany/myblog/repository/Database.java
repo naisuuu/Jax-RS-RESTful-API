@@ -14,7 +14,7 @@ import java.util.List;
 
 /**
  *
- * @author vilewalker
+ * @author cjMosawan
  */
 public class Database {
     //3 arraylists - 1 for each model

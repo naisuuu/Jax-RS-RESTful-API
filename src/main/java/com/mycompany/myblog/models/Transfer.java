@@ -8,7 +8,7 @@ import lombok.Data;
 
 /**
  *
- * @author vilewalker
+ * @author cjMosawan
  */
 @Data
 public class Transfer {

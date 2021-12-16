@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  *
- * @author vilewalker
+ * @author cjMosawan
  */
 @Path("customers/accounts")
 @Consumes(MediaType.APPLICATION_JSON)

@@ -10,7 +10,7 @@ import java.util.List;
 
 /**
  *
- * @author vilewalker
+ * @author cjMosawan
  */
 
 public class Customer {

@@ -19,7 +19,7 @@ import javax.ws.rs.core.Response;
 
 /**
  *
- * @author vilewalker
+ * @author cjMosawan
  */
 @Path("customers/transactions/")
 @Consumes(MediaType.APPLICATION_JSON)

@@ -9,7 +9,7 @@ import lombok.Data;
 
 /**
  *
- * @author vilewalker
+ * @author cjMosawan
  */
 
 public class Transaction {
