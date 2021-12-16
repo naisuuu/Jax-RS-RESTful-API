@@ -5,7 +5,9 @@
 package com.mycompany.myblog.resources;
 
 
+import com.mycompany.myblog.models.Account;
 import com.mycompany.myblog.models.Customer;
+import com.mycompany.myblog.models.Transaction;
 import com.mycompany.myblog.services.AccountService;
 import com.mycompany.myblog.services.CustomerService;
 import java.util.List;
@@ -17,6 +19,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 /**
  *
@@ -36,19 +39,26 @@ public class CustomerController {
         return customerService.getAllCustomers();
     }
     
+    @GET
+    @Path("/{customerID}")
+    public Customer getCustomerByID(@PathParam("customerID")Integer customerID){
+        return customerService.getCustomerByID(customerID);
+    }
     
+    @GET
+    @Path("/{customerID}/accounts/")
+    public List<Account> getCustomerAccountsByID(@PathParam("customerID")Integer customerID){
+        return customerService.getAllCustomerAccountsByCustomerID(customerID);
+    }
     
     @POST
-    @Path("{customerID}/{accountIDSend}/{accountIDReceive}")
-    public String transferToAccount(@PathParam("customerID")Integer customerID, @PathParam("accountIDSend")Integer accountID,@PathParam("accountIDReceive")Integer accountID2, Integer amount) {
-        return accountService.accountTransferToAccount(accountID, accountID2, amount);
+    @Path("/create/")
+    public Response createCustomer(Customer c){
+         customerService.createCustomer(c);
+         return Response.ok().entity(c).build();
     }
+    
 
-    @POST
-    @Path("{customerID}/{accountID}")
-    public void depositToAccount(@PathParam("customerID")Integer customerID, @PathParam("accountID")Integer accountID, Integer amount) {
-           accountService.accountDeposit(accountID, amount);
-    }
 
     }
     

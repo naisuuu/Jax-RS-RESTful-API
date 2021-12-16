@@ -4,6 +4,7 @@
  */
 package com.mycompany.myblog.services;
 
+import com.mycompany.myblog.models.Account;
 import com.mycompany.myblog.models.Customer;
 import com.mycompany.myblog.models.Customer;
 import com.mycompany.myblog.repository.Database;
@@ -27,6 +28,13 @@ public class CustomerService {
     public List<Customer> getAllCustomers() {
         return customerList;
     }
+    
+    public List<Account> getAllCustomerAccountsByCustomerID(Integer customerID){
+        Customer customer = getCustomerByID(customerID);
+        List customerAccounts = customer.getAccounts();
+        
+        return customerAccounts;
+    }
  
      
      public Customer getCustomerByID(Integer customerID){
@@ -40,7 +48,8 @@ public class CustomerService {
         }
         return customerResult;
     }
-     public Customer createCustomer(Customer c) {
+     
+    public Customer createCustomer(Customer c) {
 	c.setCustID(customerList.size() + 1);
       	customerList.add(c);
 	System.out.println("201 - resource created with path: /customers/" + String.valueOf(c.getCustID()));

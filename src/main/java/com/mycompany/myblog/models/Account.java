@@ -34,5 +34,4 @@ public class Account {
         this.accountBalance = accountBalance;
         this.accountTransaction = accountTransaction;
     }
-
-    }
+}

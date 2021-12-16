@@ -16,22 +16,34 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  *
  * @author vilewalker
  */
-@Path("customer/accounts")
+@Path("customers/accounts")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 public class AccountController {
     
     AccountService accountService = new AccountService();
     
+    
     @POST
+    @Path("/customerID/{customerID}/")
+    public Response createAccount(@PathParam("customerID")Integer customerID, Account account) { 
+        Account createdAccount;
+         accountService.createAccount(customerID, account);
+         createdAccount = accountService.createAccount(customerID, account);
+         return Response.ok().entity(createdAccount).build();
+    }
+    
+    @GET
     @Path("/customerID/{customerID}")
-    public void createAccount(@PathParam("customerID")Integer customerID, @FormParam("accountType")String accountType, @FormParam("accountBalance")Integer accountBalance) { 
-         accountService.createAccount(customerID, accountType, accountBalance);
+    public List<Account> getAllAccountsByCustomerID(@PathParam("customerID")Integer customerID){
+        return accountService.getAllAccountsByCustomerID(customerID);
     }
     
     @GET

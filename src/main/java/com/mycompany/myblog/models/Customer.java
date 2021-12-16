@@ -14,15 +14,17 @@ import java.util.List;
  */
 
 public class Customer {
+    public Integer custID;
     private String custName;
     private String custAddress;
     private String custEmail;
     private String custPassword;
     private List<Account> accounts = new ArrayList<>();
-    public Integer custID;
+    
     
     public Customer(){
     }
+    
     public Customer(int custID, String custName, String custAddress,String custEmail, String custPassword, List<Account>accounts){
         this.custID = custID;
         this.custName = custName;
@@ -82,5 +84,6 @@ public class Customer {
     public void setCustID(Integer custID) {
         this.custID = custID;
     }
+    
     
 }

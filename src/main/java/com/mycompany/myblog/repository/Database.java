@@ -27,11 +27,13 @@ public class Database {
 
     public Database() {
         if (init) {
-          
+          List<Account> list1 = new ArrayList();
+          List<Account> list2 = new ArrayList();
+          List<Account> list3 = new ArrayList();
         // Create some Customers
-        Customer c1 = new Customer (1, "Name1","Address","Email.com","password",accountDB);  
-        Customer c2 = new Customer (2, "Name2","Address","Email.com","password",accountDB);  
-        Customer c3 = new Customer (3, "Name3","Address","Email.com","password",accountDB);  
+        Customer c1 = new Customer (1, "Name1","Address","Email.com","password",list1); 
+        Customer c2 = new Customer (2, "Name2","Address","Email.com","password",list2);  
+        Customer c3 = new Customer (3, "Name3","Address","Email.com","password",list3);  
      
         
         customerDB.add(c1);
@@ -41,12 +43,19 @@ public class Database {
         
         // Add those Customers to each of the messages. 
         // Keep in mind ALL messages will contain same list of seeded Customers!!!
-        Account m1 = new Account(1,1,"DSGFDH","Savings",300,transactionDB);
-        Account m2 = new Account(1,2,"GJVJGV","Savings",300,transactionDB);
-        Account m3 = new Account(2,3,"JCKCKH","Savings",300,transactionDB);
-        Account m4 = new Account(3,4,"VTCTCT","Savings",300,transactionDB);
+        List<Transaction> acc1List = new ArrayList();
+        List<Transaction> acc2List = new ArrayList();
+        List<Transaction> acc3List = new ArrayList();
+        List<Transaction> acc4List = new ArrayList();
+        Account m1 = new Account(1,1,"DSGFDH","Savings",300,acc1List);
+        Account m2 = new Account(1,2,"GJVJGV","Savings",300,acc2List);
+        Account m3 = new Account(2,3,"JCKCKH","Savings",300,acc3List);
+        Account m4 = new Account(3,4,"VTCTCT","Savings",300,acc4List);
       
-        
+        list1.add(m1);
+        list1.add(m2);
+        list2.add(m3);
+        list3.add(m4);
         accountDB.add(m1);
         accountDB.add(m2);
         accountDB.add(m3);
