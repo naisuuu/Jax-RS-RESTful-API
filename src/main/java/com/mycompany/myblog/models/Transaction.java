@@ -14,9 +14,21 @@ import lombok.Data;
 
 @Data
 public class Transaction {
-    private Boolean transactionDebit;
-    private Boolean transactionCredit;
-    private Date transactionDate;
+    public Integer transactionID;
+    private String transactionDate;
     private String transactionDescription;
     private Integer transactionPostBalance;
+    private Integer accountID;
+    
+    public Transaction(){}
+
+    public Transaction(Integer transactionID, String transactionDate, String transactionDescription, Integer transactionPostBalance, Integer accountID) {
+        this.transactionID = transactionID;
+        this.transactionDate = transactionDate;
+        this.transactionDescription = transactionDescription;
+        this.transactionPostBalance = transactionPostBalance;
+        this.accountID = accountID;
+    }
+    
+    
 }

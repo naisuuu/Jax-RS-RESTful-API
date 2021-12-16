@@ -7,6 +7,7 @@ package com.mycompany.myblog.models;
 import java.util.List;
 import lombok.Data;
 
+
 /**
  *
  * @author vilewalker
@@ -14,10 +15,23 @@ import lombok.Data;
 
 @Data
 public class Account {
+    public Integer customerID;
+    public Integer accountID;
     private String accountSortCode;
     private String accountType;
-    private Integer accountNumber;
     private Integer accountBalance;
+    private List<Transaction> accountTransaction;
     
-    private List<Transaction> accountTransactions;
+    public Account(){
+        
     }
+
+    public Account(Integer customerID, Integer accountID, String accountSortCode, String accountType, Integer accountBalance, List<Transaction> accountTransaction) {
+        this.customerID = customerID;
+        this.accountID = accountID;
+        this.accountSortCode = accountSortCode;
+        this.accountType = accountType;
+        this.accountBalance = accountBalance;
+        this.accountTransaction = accountTransaction;
+    }
+}
